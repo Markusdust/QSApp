@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Notes.Views.NotesPage"
+             Title="QSApp: The little mobile helper"
+             BackgroundColor="White">
+    <!-- Layout children vertically -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.2*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label x:Name="lblArt"
+               Grid.Column="0" Grid.Row="0" Text="Art:" 
+               FontSize="Small" TextColor="Gray" IsVisible="false"/>
+
+        <Picker x:Name="errorlocation" SelectedIndexChanged="errorlocation_SelectedIndexChanged"
+                Grid.Column="0" 
+                Grid.ColumnSpan="3" Grid.Row="0"
+                Title="Fehlerart wählen"
+                FontSize="Medium"
+                TextColor="Black"
+                TitleColor="Gray"
+                />
+
+        <Label x:Name="lblProblemkreis"
+               Grid.Column="0" Grid.Row="1" Text="Problemkreis:" 
+               FontSize="Small" TextColor="Gray" IsVisible="false"/>
+
+        <Picker x:Name="errorTypePicker" SelectedIndexChanged="errorTypePicker_SelectedIndexChanged"
+                Grid.Column="0" 
+                Grid.ColumnSpan="3" Grid.Row="1"
+                Title="Problemkreis wählen"
+                FontSize="Medium"
+                TitleColor="Gray"
+                TextColor="Black"/>
+
+        <Label x:Name="lblArtikelNr"
+               
+                Grid.Column="0" Grid.Row="2" Text="ArtikelNr:" 
+               FontSize="Small" TextColor="Gray" IsVisible="false"/>
+
+        <Editor x:Name="editor" TextChanged="editor_TextChanged" TextTransform="Uppercase"
+                Placeholder="ArtikelNr:xxx" Grid.Column="0" Grid.Row="2"
+                Margin="0,10,0,10"
+                PlaceholderColor="Gray" TextColor="Black" />
+
+        <Label x:Name="lblReceipt"
+                Grid.Column="1" Grid.Row="2" Text="Beleg:" 
+               FontSize="Small" TextColor="Gray" IsVisible="false"/>
+
+        <Editor x:Name="receipt" TextChanged="receipt_TextChanged" TextTransform="Uppercase"
+                Margin="0,10,0,10"
+                Placeholder="Beleg:xxx" Grid.Column="1" Grid.Row="2"
+                PlaceholderColor="Gray" TextColor="Black"/>
+
+        <Label  x:Name="lblAmount" 
+                Grid.Column="2" Grid.Row="2" Text="Menge:" 
+               FontSize="Small" TextColor="Gray" IsVisible="false"/>
+
+        <Editor x:Name="amount" TextChanged="amount_TextChanged" TextTransform="Uppercase"
+                Margin="0,10,0,10"
+                Placeholder="Menge" Grid.Column="2" Grid.Row="2"
+                PlaceholderColor="Gray" TextColor="Black"/>
+
+        <Label x:Name="lblTitle"
+               Grid.Column="0" Grid.Row="3" Text="Titel:" 
+               FontSize="Small" TextColor="Gray" IsVisible="false"/>
+        
+        <Editor x:Name="title" TextChanged="title_TextChanged"
+                Margin="0,10,0,10"
+                Placeholder="Titel/Kurzbeschreibung"
+                Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3"
+                FontSize="Medium" PlaceholderColor="Gray" TextColor="Black"/>
+
+        <Label x:Name="lblDescription"
+               Grid.Column="0" Grid.Row="4" Text="Mängelbeschreibung:" 
+               FontSize="Small" TextColor="Gray" IsVisible="false"/>
+        
+        <Editor x:Name="description" TextChanged="description_TextChanged"
+                Margin="0,10,0,10"
+                Placeholder="Mängelbeschreibung"
+                Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3" PlaceholderColor="Gray" TextColor="Black"/>
+
+        <Button Text="Bild hinzufügen"
+                Clicked="OnPictureClicked"
+                BackgroundColor="#5b8ab6" TextColor="White"
+                Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="5"/>
+
+        <Button Text="Senden"
+                Clicked="OnSaveButtonClicked"
+                BackgroundColor="#5b8ab6" TextColor="White"
+                Grid.Column="0"  Grid.ColumnSpan="3" Grid.Row="6"/>
+
+    </Grid>
+    
+</ContentPage>
